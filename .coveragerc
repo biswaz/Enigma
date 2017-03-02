@@ -1,0 +1,5 @@
+[run]
+include = enigma/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin

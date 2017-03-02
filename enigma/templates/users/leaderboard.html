@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}Members{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Leaderboard</h2>
+
+  <table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Level</th>
+      <th>College</th>
+      <th>Time taken</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in user_list %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{user.first_name}}  {{ user.last_name}} {{ user.username}}</td>
+      <td>{{user.level}}</td>
+      <td>{{user.college}}</td>
+      <td>{{ user.get_time_taken.0 }} Days,
+         {{ user.get_time_taken.1 }} Hours, {{ user.get_time_taken.2 }} Minutes</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock content %}

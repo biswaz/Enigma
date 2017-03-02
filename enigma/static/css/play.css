@@ -1,0 +1,39 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 150px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  padding: 15px;
+  background-color: #4e5d6c;
+  text-align: center;
+  color: white;
+}
+
+
+.tabContent{
+  padding: 8px;
+}
+
+.navbar-brand{
+  font-family: 'PT Sans', sans-serif;
+}
+
+.nav-tabs{
+  margin-right: 15%;
+}
+
+.jumbotron{
+  background-image: url("../1.png");
+  background-size: cover;
+  background-position-y: 50%;
+  color: white;
+
+}
