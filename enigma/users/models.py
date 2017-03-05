@@ -30,7 +30,6 @@ class User(AbstractUser):
             return None
         else:
             delta = self.time_taken
-            print(delta)
             return round(delta.days,2), round(delta.seconds/3600, 2), round((delta.seconds/60)%60, 2)
 
     def level(self):
