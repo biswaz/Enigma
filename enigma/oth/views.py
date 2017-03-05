@@ -21,7 +21,7 @@ def pick_random_qn(completed_qns, phase):
 
 
 class AnswerForm(forms.Form):
-    answer = forms.CharField()
+    answer = forms.CharField(label='Crack the code')
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
@@ -82,26 +82,25 @@ class PlayView(FormMixin, DetailView):
         ans_qn_count = completed_qns.filter(phase=cur_phase).count()
         last_phase = Phase.objects.all().order_by('-phase').first()
 
-        #upgrade phase, expect at last_phase
-
+        #upgrade phase, except at last_phase
         if(ans_qn_count == cur_phase.max_qns and cur_phase != last_phase):
             next_phase = Phase.objects.get(phase=cur_phase.phase + 1)
             user.cur_phase = next_phase #TODO: lookout for phase 3
             user.save()
 
-        cur_qn = pick_random_qn(user.completed_qns, user.cur_phase)
-        cur_qn_id = cur_qn.pk
+            cur_qn = pick_random_qn(user.completed_qns, user.cur_phase)
+            cur_qn_id = cur_qn.pk
 
-        user.cur_qn = cur_qn
-        user.time_taken = timezone.now() - user.date_joined
-        user.save()
+            user.cur_qn = cur_qn
+            user.time_taken = timezone.now() - user.date_joined
+            user.save()
         return super(PlayView, self).form_valid(form)
 
 
     def get_object(self):
         try:
             cur_qn_id = self.request.user.cur_qn.pk
-            
+
         #AttributeError when qn doesnt exist
         except AttributeError:
             completed_qns = self.request.user.completed_qns

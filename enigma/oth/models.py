@@ -22,11 +22,10 @@ class Image(models.Model):
         return self.name
 
 
-class Question(models.Model):
-    title = models.CharField(blank=False, max_length=255)
+class Question(models.Model):   
     content = models.TextField(blank=False)
     clue = models.TextField(null=True)
-    images = models.ForeignKey(Image, null=True)
+    images = models.ManyToManyField(Image)
     answer = models.CharField(blank=False, max_length=255)
     phase = models.ForeignKey(Phase, null=True)
 
