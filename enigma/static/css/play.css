@@ -30,13 +30,6 @@ body {
   margin-right: 15%;
 }
 
-.jumbotron{
-  background-image: url("../1.png");
-  background-size: cover;
-  background-position-y: 50%;
-  color: white;
-
-}
 .qn{
   padding-left: 2%;
   padding-top: 1%;
