@@ -49,6 +49,8 @@ MIDDLEWARE = RAVEN_MIDDLEWARE + MIDDLEWARE
 # and https://docs.djangoproject.com/ja/1.9/howto/deployment/checklist/#run-manage-py-check-deploy
 
 # set this to 60 seconds and then to 518400 when you can prove it works
+#Commenting for releaving vsrf
+"""
 SECURE_HSTS_SECONDS = 60
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
     'DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS', default=True)
@@ -61,6 +63,7 @@ SECURE_SSL_REDIRECT = env.bool('DJANGO_SECURE_SSL_REDIRECT', default=True)
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 X_FRAME_OPTIONS = 'DENY'
+"""
 
 # SITE CONFIGURATION
 # ------------------------------------------------------------------------------
