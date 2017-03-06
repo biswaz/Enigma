@@ -92,7 +92,7 @@ class PlayView(FormMixin, DetailView):
             cur_qn_id = cur_qn.pk
 
             user.cur_qn = cur_qn
-            user.time_taken = timezone.now() - user.date_joined
+            user.date_last_ans = timezone.now()
             user.save()
         return super(PlayView, self).form_valid(form)
 
@@ -132,5 +132,5 @@ class FinishView(TemplateView):
 
 class LeaderBoardView(ListView):
 
-    queryset = User.objects.annotate(level=Count('completed_qns')).exclude(level=0).order_by('-level', 'time_taken')
+    queryset = User.objects.annotate(level=Count('completed_qns')).exclude(level=0).order_by('-level', 'date_last_ans')
     template_name = 'users/leaderboard.html'

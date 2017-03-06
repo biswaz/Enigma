@@ -13,7 +13,7 @@
       <th>Name</th>
       <th>Level</th>
       <th>College</th>
-      <th>Time taken</th>
+      <th>Time completed</th>
     </tr>
   </thead>
   <tbody>
@@ -23,8 +23,7 @@
       <td>{{user.first_name}}  {{ user.last_name}} {{ user.username}}</td>
       <td>{{user.level}}</td>
       <td>{{user.college}}</td>
-      <td>{{ user.get_time_taken.0 }} Days,
-         {{ user.get_time_taken.1 }} Hours, {{ user.get_time_taken.2 }} Minutes</td>
+      <td>{{ user.date_last_ans}}</td>
     </tr>
     {% endfor %}
   </tbody>

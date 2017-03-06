@@ -9,7 +9,7 @@
   <div class="list-group">
     {% for user in user_list %}
       <a href="{% url 'users:detail' user.username %}" class="list-group-item">
-        <h4 class="list-group-item-heading">{{ user.time_taken }}</h4>
+        <h4 class="list-group-item-heading">{{ user.date_last_ans }}</h4>
       </a>
     {% endfor %}
   </div>

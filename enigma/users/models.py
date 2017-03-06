@@ -18,19 +18,19 @@ class User(AbstractUser):
     phone = models.CharField(_('Phone number'), max_length=10)
     college = models.CharField(_('Name of your college'), max_length=100)
     date_joined = models.DateTimeField(default=timezone.now)
-    time_taken = models.DurationField(null=True)
+    date_last_ans = models.DateTimeField(null=True)
 
     cur_phase = models.ForeignKey(Phase, null=True, default=1)
     completed_qns = models.ManyToManyField(Question, related_name="compq_related")
     cur_qn = models.ForeignKey(Question, null=True, blank=True, related_name="curq_related")
 
 
-    def get_time_taken(self):
-        if (self.time_taken == None):
-            return None
-        else:
-            delta = self.time_taken
-            return round(delta.days,2), round(delta.seconds/3600, 2), round((delta.seconds/60)%60, 2)
+#    def get_time_taken(self):
+#        if (self.date_last_ans == None):
+#            return None
+#        else:
+#            delta = self.date_last_ans
+#            return round(delta.days,2), round(delta.seconds/3600, 2), round((delta.seconds/60)%60, 2)
 
     def level(self):
         return self.completed_qns.count()
