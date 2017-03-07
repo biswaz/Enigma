@@ -29,7 +29,7 @@ class AnswerForm(forms.Form):
 
     def clean_answer(self):
         answer = self.cleaned_data['answer']
-        if answer != self.request.user.cur_qn.answer:
+        if answer != self.request.user.cur_qn.answer.replace(" ", "").lower():
             raise forms.ValidationError("Incorrect answer")
         return answer
 
