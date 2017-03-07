@@ -6,6 +6,7 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
+from django.views.generic.base import RedirectView
 from django.views import defaults as default_views
 
 from enigma import oth
@@ -18,6 +19,7 @@ urlpatterns = [
     url(settings.ADMIN_URL, admin.site.urls),
 
     # User management
+    url(r'^accounts/signup/', RedirectView.as_view(pattern_name='users:redirect')),
     url(r'^users/', include('enigma.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
 
