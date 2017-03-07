@@ -22,7 +22,7 @@ class User(AbstractUser):
 
     cur_phase = models.ForeignKey(Phase, null=True, default=1)
     completed_qns = models.ManyToManyField(Question, related_name="compq_related")
-    cur_qn = models.ForeignKey(Question, null=True, blank=True, related_name="curq_related")
+    cur_qn = models.ForeignKey(Question, null=True, blank=True, related_name="curq_related", on_delete=models.SET_NULL)
 
 
 #    def get_time_taken(self):

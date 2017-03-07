@@ -50,6 +50,7 @@ MIDDLEWARE = RAVEN_MIDDLEWARE + MIDDLEWARE
 
 # set this to 60 seconds and then to 518400 when you can prove it works
 #Commenting for relieving csrf
+#TODO: Secure these in the future
 """
 SECURE_HSTS_SECONDS = 60
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
