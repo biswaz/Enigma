@@ -88,12 +88,12 @@ class PlayView(FormMixin, DetailView):
             user.cur_phase = next_phase
             user.save()
 
-            cur_qn = pick_random_qn(user.completed_qns, user.cur_phase)
-            cur_qn_id = cur_qn.pk
+        cur_qn = pick_random_qn(user.completed_qns, user.cur_phase)
+        cur_qn_id = cur_qn.pk
+        user.cur_qn = cur_qn
 
-            user.cur_qn = cur_qn
-            user.date_last_ans = timezone.now()
-            user.save()
+        user.date_last_ans = timezone.now()
+        user.save()
         return super(PlayView, self).form_valid(form)
 
 
