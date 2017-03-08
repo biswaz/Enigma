@@ -9,7 +9,7 @@
 
 {% block content %}
 
-<h2>Level {{request.user.level}}</h2>
+<h2>Level {{request.user.level|add:"1"}}</h2>
 <div class="row">
   <ul class="nav nav-tabs">
     <li class="active"><a href="#question" data-toggle="tab" aria-expanded="true">Question</a></li>

@@ -85,7 +85,7 @@ class PlayView(FormMixin, DetailView):
         #upgrade phase, except at last_phase
         if(ans_qn_count == cur_phase.max_qns and cur_phase != last_phase):
             next_phase = Phase.objects.get(phase=cur_phase.phase + 1)
-            user.cur_phase = next_phase #TODO: lookout for phase 3
+            user.cur_phase = next_phase
             user.save()
 
             cur_qn = pick_random_qn(user.completed_qns, user.cur_phase)
