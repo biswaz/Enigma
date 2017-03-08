@@ -14,14 +14,14 @@ from enigma.oth.models import Question, Phase
 @python_2_unicode_compatible
 class User(AbstractUser):
 
-    
+
     phone = models.CharField(_('Phone number'), max_length=10)
     college = models.CharField(_('Name of your college'), max_length=100)
     date_joined = models.DateTimeField(default=timezone.now)
     date_last_ans = models.DateTimeField(null=True)
 
     cur_phase = models.ForeignKey(Phase, null=True, default=1)
-    completed_qns = models.ManyToManyField(Question, related_name="compq_related")
+    completed_qns = models.ManyToManyField(Question, related_name="compq_related", blank=True)
     cur_qn = models.ForeignKey(Question, null=True, blank=True, related_name="curq_related", on_delete=models.SET_NULL)
 
 
