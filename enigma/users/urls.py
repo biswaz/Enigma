@@ -5,7 +5,6 @@ from django.conf.urls import url
 
 from . import views
 
-#TODO: remove unwanted views
 urlpatterns = [
     url(
         regex=r'^~redirect/$',

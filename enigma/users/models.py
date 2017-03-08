@@ -14,7 +14,7 @@ from enigma.oth.models import Question, Phase
 @python_2_unicode_compatible
 class User(AbstractUser):
 
-    #TODO: remove name field and user first + last names
+    
     phone = models.CharField(_('Phone number'), max_length=10)
     college = models.CharField(_('Name of your college'), max_length=100)
     date_joined = models.DateTimeField(default=timezone.now)
