@@ -43,9 +43,9 @@
           {% if request.user.is_authenticated %}
             <li ><a href="/play">PLAY</a></li>
           {% else %}
-          <li ><a href="/#login">PLAY</a></li>
+          <li ><a href="/#login">LOGIN</a></li>
         </ul>
-
+        {% endif %}
         <ul class="nav navbar-nav navbar-right">
 
       {% if user.is_authenticated %}
