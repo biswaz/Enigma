@@ -132,5 +132,5 @@ class FinishView(TemplateView):
 
 class LeaderBoardView(ListView):
 
-    queryset = User.objects.annotate(level=Count('completed_qns')).exclude(level=0).order_by('-level', 'date_last_ans')
+    queryset = User.objects.annotate(level=Count('completed_qns')).order_by('-level', 'date_last_ans')
     template_name = 'users/leaderboard.html'
