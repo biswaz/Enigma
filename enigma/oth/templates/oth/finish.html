@@ -1,8 +1,17 @@
 {% extends "base.html" %}
+{% load staticfiles i18n %}
 
 {% block content %}
 
 <h1>
-  FINISH
+  My watch has ended.
 </h1>
+
+<blockquote>
+  <p>You have won</p>
+</blockquote>
+
+<audio controls style="opacity: .5" autoplay="" loop="" controls="">
+  <source src="{% static 'music/got.mp3' %}" type="audio/mpeg">
+</audio>
 {% endblock content %}

@@ -2,6 +2,7 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch.dispatcher import receiver
 from .models import Question, Phase
 
+#TODO: Prevent pool_ans incrementation on qn updation
 @receiver(post_save, sender=Question)
 def question_save(sender, instance, **kwargs):
     qn_phase = instance.phase
