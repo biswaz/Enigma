@@ -2,11 +2,24 @@
   display: block;
 }
 
+
 .intro{
   background: url(../images/team_enigma.jpg) no-repeat bottom center scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;
+  -o-background-size: cover ;
+}
+
+
+@media (max-width: 767px) {
+.intro{
+  background: url(../images/team_enigma.jpg) no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+  -o-background-size: contain;
+}
 }
