@@ -41,7 +41,7 @@
           <li ><a href="http://www.inventogec.in/">Invento 17</a></li>
           <li ><a href="/leaderboard">Leaderboard</a></li>
           {% if request.user.is_authenticated %}
-            <li ><a href="/play">PLAY</a></li>
+          <li ><a href="/play">PLAY</a></li>
           {% else %}
           <li ><a href="/#login">LOGIN</a></li>
           {% endif %}
@@ -51,25 +51,25 @@
 
         <ul class="nav navbar-nav navbar-right">
 
-      {% if user.is_authenticated %}
+          {% if user.is_authenticated %}
 
-      <li class="dropdown" id="account_dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          Welcome, {{user.first_name}} {{user.last_name}}
-          <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="/accounts/logout">Logout</a></li>
+          <li class="dropdown" id="account_dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Welcome, {{user.first_name}} {{user.last_name}}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/accounts/logout">Logout</a></li>
+            </ul>
+          </li>
+
+          {% else %}
+
+          <li id="login"><a href="/#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+          {% endif %}
+
         </ul>
-      </li>
-
-      {% else %}
-
-      <li id="login"><a href="/#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-
-      {% endif %}
-
-    </ul>
 
       </div>
     </div>
@@ -77,37 +77,42 @@
 
 
   <div class="container well">
-  {% block content %}
+    <div class="alert alert-dismissible alert-info">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>The clock is ticking! </strong>Enigma will end today at midnight. The site will be available for playing for some more days.
+    </div>
 
-  {% endblock content %}
+    {% block content %}
+
+    {% endblock content %}
 
   </div>
 
   <div class="container well fblike">
     <p class="fbliketext">
-    Like us for more updates:<br>
-  </p>
+      Like us for more updates:<br>
+    </p>
     <div class="fb-like" data-href="https://www.facebook.com/Inventogec.in" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
   </div>
 
 
 
-{% block javascript %}
-<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+  {% block javascript %}
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=1277867418974360";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=1277867418974360";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 
-{% endblock javascript %}
+  {% endblock javascript %}
 
 
 </body>
