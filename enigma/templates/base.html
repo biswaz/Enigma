@@ -64,9 +64,7 @@
           </li>
 
           {% else %}
-
           <li id="login"><a href="/#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-
           {% endif %}
 
         </ul>
@@ -88,13 +86,14 @@
 
   </div>
 
+<!--
   <div class="container well fblike">
     <p class="fbliketext">
       Like us for more updates:<br>
     </p>
     <div class="fb-like" data-href="https://www.facebook.com/Inventogec.in" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
   </div>
-
+-->
 
 
   {% block javascript %}
@@ -103,6 +102,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+<!--
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -111,7 +111,7 @@
     js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=118574172244293";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
-
+-->
   {% endblock javascript %}
 
 
