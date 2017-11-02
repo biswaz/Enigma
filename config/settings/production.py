@@ -36,15 +36,17 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 # See https://docs.sentry.io/clients/python/integrations/django/
 INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
 
+RAVEN_MIDDLEWARE = ('raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware', )
+MIDDLEWARE = RAVEN_MIDDLEWARE + MIDDLEWARE
+
+"""
+
 # Use Whitenoise to serve static files
 # See: https://whitenoise.readthedocs.io/
 WHITENOISE_MIDDLEWARE = ('whitenoise.middleware.WhiteNoiseMiddleware', )
 MIDDLEWARE = WHITENOISE_MIDDLEWARE + MIDDLEWARE
 
-RAVEN_MIDDLEWARE = ('raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware', )
-MIDDLEWARE = RAVEN_MIDDLEWARE + MIDDLEWARE
 """
-
 # SECURITY CONFIGURATION
 # ------------------------------------------------------------------------------
 # See https://docs.djangoproject.com/en/1.9/ref/middleware/#module-django.middleware.security
@@ -53,7 +55,7 @@ MIDDLEWARE = RAVEN_MIDDLEWARE + MIDDLEWARE
 # set this to 60 seconds and then to 518400 when you can prove it works
 #Commenting for relieving csrf
 #TODO: Secure these in the future
-"""
+
 SECURE_HSTS_SECONDS = 60
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
     'DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS', default=True)
@@ -88,9 +90,11 @@ INSTALLED_APPS += (
     'storages',
 )
 
+
 # Static Assets
 # ------------------------
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 """
 # EMAIL
@@ -108,6 +112,8 @@ ANYMAIL = {
 }
 EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
 """
+
+
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See:
@@ -123,6 +129,8 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 # Use the Heroku-style specification
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
 DATABASES['default'] = env.db('DATABASE_URL')
+
+
 """
 # CACHING
 # ------------------------------------------------------------------------------
