@@ -24,3 +24,5 @@ def question_delete(sender, instance, **kwargs):
     qn_phase = instance.phase
     qn_phase.pool_qns -= 1
     qn_phase.save()
+
+#TODO:set max_qns also
