@@ -83,7 +83,9 @@ class PlayView(FormMixin, DetailView):
         last_phase = Phase.objects.all().order_by('-phase').first()
 
         #upgrade phase, except at last_phase
+        max_qns = cur_phase.max_qns
         if(ans_qn_count == cur_phase.max_qns and cur_phase != last_phase):
+            print("im in if")
             next_phase = Phase.objects.get(phase=cur_phase.phase + 1)
             user.cur_phase = next_phase
             user.save()
