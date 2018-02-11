@@ -57,6 +57,7 @@ node_modules/
 .sass-cache
 
 # virtual environments
+#TODO: uncomment this
 #.env
 
 # User-uploaded media

@@ -13,5 +13,6 @@ class SignupForm(forms.Form):
         user.last_name = self.cleaned_data['last_name']
         user.college = self.cleaned_data['college']
         user.email = self.cleaned_data['email']
-        user.phone_number = self.cleaned_data['phone_number']
+        user.phone = self.cleaned_data['phone_number']
+        #using phone_number instead of phone might've been a problem
         user.save()
