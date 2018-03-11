@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^', include('enigma.oth.urls')),
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
+    url(r'^privacy/$', TemplateView.as_view(template_name='pages/privacy.html'), name='privacy'),
     url(r'^favicon\.ico$',RedirectView.as_view(url='/static/images/favicon.ico')),
 
     # Django Admin, use {% url 'admin:index' %}
