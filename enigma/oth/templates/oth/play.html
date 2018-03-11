@@ -14,38 +14,23 @@
   <ul class="nav nav-tabs">
     <li class="active"><a href="#question" data-toggle="tab" aria-expanded="true">Question</a></li>
     <li><a href="#clue" data-toggle="tab" aria-expanded="false">Clue</a></li>
-
   </ul>
 
   <div id="myTabContent" class="tab-content row qn-clue">
     <div class="tab-pane fade active in" id="question">
 
-      <div class="col-md-6 qn">
+      <div class="col-md-4 qn">
         {{ question.content|linebreaks }}
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
           <div class="carousel-inner" role="listbox">
-            {% for image in question.images.all %}
-
-            <div class="item{% if forloop.counter == 1 %} active{% endif %}">
+            <div class="item active">
               <img
-              src="{{ MEDIA_URL }}{{ image.image }}" alt="First slide">
+              src="{{ question.image }}" alt="First slide">
             </div>
-
-            {% endfor %}
           </div>
-          {% if question.images.all|length > 1 %}
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-          {% endif %}
         </div>
       </div>
 
@@ -55,17 +40,17 @@
       {{ question.clue|linebreaks }}
     </div>
   </div>
-    </div>
+</div>
 
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4 col-xl-4 col-xl-offset-4 answer">
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 col-xl-4 col-xl-offset-4 answer">
     <form action="/play/" method="post">
       {% csrf_token %}
       {{ form|crispy }}
       <button class="btn btn-primary" type="submit">Submit</button>
     </form>
   </div>
-  </div>
+</div>
 </div>
 
 

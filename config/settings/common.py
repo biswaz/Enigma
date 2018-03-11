@@ -240,6 +240,7 @@ ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
 ACCOUNT_ADAPTER = 'enigma.users.adapters.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = 'enigma.users.adapters.SocialAccountAdapter'
 ACCOUNT_SIGNUP_FORM_CLASS = 'enigma.users.forms.SignupForm'
+SOCIALACCOUNT_AUTO_SIGNUP = False
 
 # Custom user app defaults
 # Select the correct user model
