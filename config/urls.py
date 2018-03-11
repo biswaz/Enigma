@@ -12,8 +12,10 @@ from django.views import defaults as default_views
 from enigma import oth
 
 urlpatterns = [
+    url(r'^', include('enigma.oth.urls')),
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
+    url(r'^favicon\.ico$',RedirectView.as_view(url='/static/images/favicon.ico')),
 
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
@@ -23,8 +25,6 @@ urlpatterns = [
     url(r'^users/', include('enigma.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
 
-    # Your stuff: custom urls includes go here
-    url(r'^', include('enigma.oth.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

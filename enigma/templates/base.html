@@ -10,6 +10,24 @@
   <meta name="description" content="Enigma | The online treasure hunt| Invento17 | GEC Palakkad ">
   <meta name="author" content="Biswas, Rakshith">
 
+  <link rel="apple-touch-icon" sizes="57x57" href="{% static 'images/apple-icon-57x57' %}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{% static 'images/apple-icon-60x60' %}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{% static 'images/apple-icon-72x72' %}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/apple-icon-76x76' %}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{% static 'images/apple-icon-114x114' %}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{% static 'images/apple-icon-120x120' %}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{% static 'images/apple-icon-144x144' %}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{% static 'images/apple-icon-152x152' %}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-icon-180x180' %}">
+  <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'images/android-icon-192x192' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32' %}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{% static 'images/favicon-96x96' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16' %}">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="{% static 'images/ms-icon-144x144' %}">
+  <meta name="theme-color" content="#ffffff">
+
   <title>Enigma - Online Treasure Hunt</title>
 
   {% block css %}
@@ -38,14 +56,14 @@
       <div id="navbar" class="collapse navbar-collapse">
 
         <ul class="nav navbar-nav">
-          <li ><a href="http://www.inventogec.in/">Invento 17</a></li>
+          <li ><a href="http://www.inventogec.org/">Invento 18</a></li>
           <li ><a href="/leaderboard">Leaderboard</a></li>
           {% if request.user.is_authenticated %}
           <li ><a href="/play">PLAY</a></li>
           {% else %}
           <li ><a href="/#login">LOGIN</a></li>
           {% endif %}
-          <!--<li ><a href="http://www.facebook.com/Inventogec.in">In doubt? Message us here</a></li>-->
+          <li ><a href="http://www.facebook.com/inventogec">In doubt? Message us here</a></li>
           <li ><a href="/#about">RULES</a></li>
         </ul>
 
