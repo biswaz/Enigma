@@ -90,7 +90,7 @@
             <h1 class="brand-heading">ENIGMA
             <small class="text-muted">2.0</small></h1>
             <p class="intro-text">Online Treasure Hunt</p>
-            <h2>The hunt will start today at 7pm IST</h2>
+            <h2>The hunt has begun</h2>
               <a href="#about" class="btn btn-circle page-scroll">
                 <i class="fa fa-angle-double-down animated"></i>
               </a>
@@ -156,7 +156,7 @@
               <a href="{% url 'play_view' %}" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">PLAY</span></a>
             </li>
             {% else %}
-            {% comment %}
+            
             <h2>LOGIN TO GET STARTED</h2>
             <li class="login-button">
               <a href="{% provider_login_url "facebook" method="oauth2" %}" class="btn btn-default btn-lg">
@@ -164,8 +164,7 @@
                 <span class="network-name">Facebook Login</span>
               </a>
             </li>
-            {% endcomment %}
-            <h2>HANG ON, WE'RE TYING IT TOGETHER</h2>
+
             {% endif %}
           </div>
         </div>
