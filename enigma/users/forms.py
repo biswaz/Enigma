@@ -3,8 +3,7 @@ from django import forms
 class SignupForm(forms.Form):
     first_name = forms.CharField(max_length=30, label='First name')
     last_name = forms.CharField(max_length=30, label='Last name')
-    college = forms.CharField(help_text='Enter the name of your institution',
-     initial='GEC Sreekrishnapuram')
+    college = forms.CharField(help_text='Enter the name of your institution')
     email = forms.EmailField(help_text='Enter you email')
     phone_number = forms.CharField(max_length=10, label='Phone number')
 
