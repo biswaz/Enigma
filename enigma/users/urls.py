@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
-
 from django.conf.urls import url
-
 from . import views
 
 urlpatterns = [
@@ -10,8 +8,7 @@ urlpatterns = [
         regex=r'^~redirect/$',
         view=views.UserRedirectView.as_view(),
         name='redirect'
-    ),
-]
+    )]
 """
 url(
     regex=r'^$',
@@ -28,4 +25,5 @@ url(
     view=views.UserUpdateView.as_view(),
     name='update'
 ),
+]
 """
