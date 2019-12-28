@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -35,7 +35,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
         return reverse('users:detail',
                        kwargs={'username': self.request.user.username})
 
-    def get_object(self):
+    def get_object(self, queryset=None):
         # Only get the User record for the user making the request
         return User.objects.get(username=self.request.user.username)
 

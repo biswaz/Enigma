@@ -1,6 +1,5 @@
-from django.utils.safestring import mark_safe
-from django.conf import settings
 from django.db import models
+
 
 class Phase(models.Model):
     phase = models.IntegerField()
@@ -16,14 +15,13 @@ class Question(models.Model):
     clue = models.TextField(blank=True)
     image = models.URLField(blank=True)
     answer = models.CharField(blank=False, max_length=255)
-    phase = models.ForeignKey(Phase, null=True)
+    phase = models.ForeignKey(Phase, null=True, on_delete=models.PROTECT)
 
     original_phase = None
 
     def __init__(self, *args, **kwargs):
-      super(Question, self).__init__(*args, **kwargs)
-      self.original_phase = self.phase
-
+        super(Question, self).__init__(*args, **kwargs)
+        self.original_phase = self.phase
 
     def __str__(self):
         return "Question " + str(self.pk)

@@ -23,7 +23,7 @@ urlpatterns = [
 
     # User management
     url(r'^accounts/signup/', RedirectView.as_view(pattern_name='users:redirect')),
-    url(r'^users/', include('enigma.users.urls', namespace='users')),
+    url(r'^users/', include(('enigma.users.urls', 'users'), namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
 
 
